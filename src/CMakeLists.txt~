@@ -1,0 +1,15 @@
+# include_directories(include)
+include_directories(
+  include
+  ${catkin_INCLUDE_DIRS} 
+  ${OpenCV_INCLUDE_DIRS}
+)
+
+INCLUDE_DIRECTORIES( include /usr/include/flycapture ${catkin_INCLUDE_DIRS})
+
+add_executable( publisher_node my_publisher.cpp )
+
+
+add_library( my_publisher.cpp )
+
+TARGET_LINK_LIBRARIES( publisher_node ${OpenCV_LIBS} ${catkin_LIBRARIES} )

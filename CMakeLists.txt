@@ -1,0 +1,33 @@
+cmake_minimum_required(VERSION 2.8.3)
+project(stereo_publisher)
+
+find_package(catkin REQUIRED COMPONENTS
+  cv_bridge
+  image_transport
+  roscpp
+  rospy
+  std_msgs
+)
+
+FIND_PACKAGE( OpenCV REQUIRED )
+
+catkin_package(
+   INCLUDE_DIRS include
+   LIBRARIES ${PROJECT_NAME} ${catkin_INCLUDE_DIRS}
+   CATKIN_DEPENDS roscpp 
+   DEPENDS opencv)
+
+include_directories(
+  include
+  /usr/include/flycapture
+  ${catkin_INCLUDE_DIRS} 
+  ${OpenCV_INCLUDE_DIRS}
+)
+
+INCLUDE_DIRECTORIES( include ${catkin_INCLUDE_DIRS})
+
+add_executable( publisher_node src/my_publisher.cpp src/flycap.cpp)
+
+add_library(stereo_publisher src/my_publisher.cpp src/flycap.cpp )
+
+TARGET_LINK_LIBRARIES( publisher_node ${OpenCV_LIBS} ${catkin_LIBRARIES} flycapture )

@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<launch>
+	<node name="publisher_node" pkg="fly_publisher" type="publisher_node" output="screen">
+	</node>
+</launch>

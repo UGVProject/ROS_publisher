@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<launch>
+	<arg name="type"  default = "0"/>
+	<node name="publisher_node" pkg="stereo_publisher" type="publisher_node" output="screen" args="$(arg type)">
+		<!--
+		<param name = "numCap" value = "$(arg num)" />
+	-->
+	</node>
+</launch>

@@ -1,0 +1,11 @@
+This is a program for capturing stereo Pointgrey images with Opencv capture and then convert cv::mat into ROS publisher.
+
+usage:
+roslaunch stereo_publisher capture.launch
+
+default:type:=2 --- with trigger
+
+type:=0 --- without trigger
+
+
+roslaunch stereo_publisher capture.launch type:=2
